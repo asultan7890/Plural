@@ -1,0 +1,35 @@
+body {
+    background-color: #3447b2;
+}
+
+.mb-4 {
+    color: #3447b2;
+    text-align: left
+}
+
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+ul li{
+    position: relative;
+    margin: 8px 0px 8px 0px;
+    padding: 12px 8px 12px 20px;
+    font-size: 18px;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background: white;
+}
+
+#add_text {
+    position: relative;
+    margin: 8px 0px 8px 0px;
+    padding: 12px 8px 12px 20px;
+    font-size: 18px;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background: white;
+}
