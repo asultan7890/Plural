@@ -28,30 +28,31 @@ $(document).ready(function(){
           }
 
           //word ends in f
-          else if ((characters[len-1] == "f"){
+          else if (characters[len-1] == "f"){
             if (characters[len-2] == 'l'){
               if ($.inArray((characters[len-3]), ['a', 'e', 'o']) >= 0){
                 new_word = add_data.substr(0, (len-1)) + "ves";
               }
             }
-            else if ((characters[len-2] == 'a') && (characters[len-3] == 'e')){
+            else if ((characters[len-2] == 'a') && (characters[len-3] == 'e') && (characters[len-4] == 'l')) {
               new_word = add_data.substr(0, (len-1)) + "ves";
             }
           }
 
           //word ends in fe
-          else if ((characters[len-1] == 'e') && (characters[len-2] == 'f'))){
-
+          else if ((characters[len-1] == 'e') && (characters[len-2] == 'f') && (characters[len-3] == 'i')) {
+            if ($.inArray((characters[len-4]), ['n', 'l', 'w']) >= 0){
+              new_word = add_data.substr(0, (len-2)) + "ves";
+            }
           }
 
           //every other word
-          else{
+          else {
             new_word = add_data + 's';
           }
 
-
           //display plural word
-          $('#list').prepend("<li>" +add_data+ " -> " +new_word+ "</li")
+          $('#list').prepend("<li>" +add_data+ " -> " +new_word+ "</li");
 
           //make text field blank
           $("#add_text").val("");
