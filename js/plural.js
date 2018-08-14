@@ -9,7 +9,7 @@ $(document).ready(function(){
           add_data = add_data.toLowerCase();
 
           //change word to character array
-          var characters = [...add_data];
+          var word_array = [...add_data];
 
           //get string length
           var len = add_data.length;
@@ -18,8 +18,8 @@ $(document).ready(function(){
           var new_word = add_data
 
           //if word ends in y
-          if (characters[len-1] == "y"){
-            if ($.inArray((characters[len-2]), ['a', 'e', 'i', 'o', 'u']) >= 0){
+          if (word_array[len-1] == "y"){
+            if ($.inArray((word_array[len-2]), ['a', 'e', 'i', 'o', 'u']) >= 0){
               new_word = add_data + 's';
             }
             else {
@@ -27,21 +27,32 @@ $(document).ready(function(){
             }
           }
 
+          //word ends in ch/sh
+          else if (word_array[len-1] == 'h'){
+            if ($.inArray((word_array[len-2]), ['c', 's']) >= 0){
+              new_word = add_data + 'es';
+            }
+          }
+
+          else if ((word_array[len-1] == 's') && (word_array[len-2] == 's')){
+            new_word = add_data + 'es';
+          }
+
           //word ends in f
-          else if (characters[len-1] == "f"){
-            if (characters[len-2] == 'l'){
-              if ($.inArray((characters[len-3]), ['a', 'e', 'o']) >= 0){
+          else if (word_array[len-1] == "f"){
+            if (word_array[len-2] == 'l'){
+              if ($.inArray((word_array[len-3]), ['a', 'e', 'o']) >= 0){
                 new_word = add_data.substr(0, (len-1)) + "ves";
               }
             }
-            else if ((characters[len-2] == 'a') && (characters[len-3] == 'e') && (characters[len-4] == 'l')) {
+            else if ((word_array[len-2] == 'a') && (word_array[len-3] == 'e') && (word_array[len-4] == 'l')) {
               new_word = add_data.substr(0, (len-1)) + "ves";
             }
           }
 
           //word ends in fe
-          else if ((characters[len-1] == 'e') && (characters[len-2] == 'f') && (characters[len-3] == 'i')) {
-            if ($.inArray((characters[len-4]), ['n', 'l', 'w']) >= 0){
+          else if ((word_array[len-1] == 'e') && (word_array[len-2] == 'f') && (word_array[len-3] == 'i')) {
+            if ($.inArray((word_array[len-4]), ['n', 'l', 'w']) >= 0){
               new_word = add_data.substr(0, (len-2)) + "ves";
             }
           }
